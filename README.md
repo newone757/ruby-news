@@ -1,51 +1,103 @@
-# Install Ruby
-## Ruby should already be installed on most Arch systems, but if not:
-sudo pacman -S ruby
+# 📰 Ruby/Sinatra Web News Setup Guide
 
-## or for debain-based systems
-sudo apt install ruby
+This guide explains how to install dependencies, configure your environment, and run the **Ruby/Sinatra web-news** application.
 
-# Install dependencies
-## Install the required gem (SQLite3 for database)
-gem install sqlite3 rss sinatra erb
+---
 
-### OR for a more professional approach, use bundler to keep project dependencies osolated
+## 📑 Table of Contents
+1. [Install Ruby](#1-install-ruby)
+2. [Install Dependencies](#2-install-dependencies)
+   - [Option A: Direct Gem Installation](#option-a-direct-gem-installation)
+   - [Option B: Using Bundler (Recommended)](#option-b-using-bundler-recommended)
+3. [Prepare the Environment](#3-prepare-the-environment)
+   - [Unsplash API Setup](#unsplash-api-setup)
+4. [Run the Application](#4-run-the-application)
 
-## Install bundler if you don't have it
-gem install bundler
+---
 
-## Create a Gemfile in your project directory
-cat > Gemfile << 'EOF'
-source 'https://rubygems.org'
+## 1. Install Ruby
 
-gem 'rss'
-gem 'sqlite3'
-gem 'sinatra'
-gem 'erb'
-EOF
+Most Arch-based systems include Ruby by default.  
+If not, install it using your package manager:
 
-## Install bundle gems
-bundle install
+**For Arch Linux:**
+    
+    sudo pacman -S ruby
 
-# Stage environment
-## Within the folder where the code will exist
-mkdir -p public/images/articles
+**For Debian/Ubuntu:**
+    
+    sudo apt install ruby
 
-## get unsplash dev api key
-### Visit: https://unsplash.com/developers
-### Create an account (free)
-### Create a new app
-### Copy your Access Key
+---
 
-### Set it as an environment variable:
-export UNSPLASH_ACCESS_KEY='your_key_here'
+## 2. Install Dependencies
 
+### Option A: Direct Gem Installation
 
-# Run it
-ruby web-news.rb
+Install required gems manually:
+    
+    gem install sqlite3 rss sinatra erb
 
-## To Run with bundler
-bundle exec ruby web-news.rb
+---
 
+### Option B: Using Bundler (Recommended)
 
+Bundler helps manage and isolate project dependencies cleanly.
+
+#### Install Bundler
+    
+    gem install bundler
+
+#### Create a `Gemfile`
+
+In your project root directory:
+    
+    cat > Gemfile << 'EOF'
+    source 'https://rubygems.org'
+
+    gem 'rss'
+    gem 'sqlite3'
+    gem 'sinatra'
+    gem 'erb'
+    EOF
+
+#### Install Dependencies
+    
+    bundle install
+
+---
+
+## 3. Prepare the Environment
+
+Inside your project directory, create the following folders:
+    
+    mkdir -p public/images/articles
+
+### Unsplash API Setup
+
+1. Go to [Unsplash Developers](https://unsplash.com/developers)  
+2. Create a free account and a new app  
+3. Copy your **Access Key**  
+4. Set it as an environment variable:
+    
+       export UNSPLASH_ACCESS_KEY='your_key_here'
+
+---
+
+## 4. Run the Application
+
+Run directly using Ruby:
+    
+    ruby web-news.rb
+
+Or, to run with Bundler:
+    
+    bundle exec ruby web-news.rb
+
+---
+
+✅ **Done!**  
+Your Sinatra app should now be running locally. Open your browser and visit:
+    
+    http://localhost:4567
 
