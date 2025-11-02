@@ -96,7 +96,7 @@ Or, to run with Bundler:
 
 ---
 
-✅ **Done!**  
+**Done!**  
 Your Sinatra app should now be running locally. Open your browser and visit:
     
     http://localhost:4567
