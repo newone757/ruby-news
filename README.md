@@ -4,7 +4,7 @@ This guide explains how to install dependencies, configure your environment, and
 
 ---
 
-## 📑 Table of Contents
+## Table of Contents
 1. [Install Ruby](#1-install-ruby)
 2. [Install Dependencies](#2-install-dependencies)
    - [Option A: Direct Gem Installation](#option-a-direct-gem-installation)
